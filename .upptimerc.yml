@@ -16,6 +16,7 @@ status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   cname: status.rootnote.co
+  theme: dark
   # baseUrl: /your-repo-name
   logoUrl: https://rootnote.co/wp-content/uploads/2021/05/2021-RootNote-Logo-Light.png
   name: Rootnote Status
