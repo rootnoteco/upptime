@@ -1,7 +1,7 @@
 url: https://prod.api.rootnote.co/api/healthcheck
 status: up
 code: 200
-responseTime: 253
-lastUpdated: 2026-02-03T23:07:24.346Z
+responseTime: 270
+lastUpdated: 2026-02-04T23:05:29.368Z
 startTime: 2026-01-15T20:49:46.518Z
 generator: Upptime <https://github.com/upptime/upptime>
