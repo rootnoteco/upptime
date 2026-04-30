@@ -4,7 +4,7 @@
     "url": "https://rootnote.co",
     "icon": "https://icons.duckduckgo.com/ip3/rootnote.co.ico",
     "slug": "root-note-homepage",
-    "status": "up",
+    "status": "down",
     "uptime": "99.99%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
@@ -16,6 +16,7 @@
     "timeMonth": 232,
     "timeYear": 248,
     "dailyMinutesDown": {
+      "2026-04-30": 0,
       "2026-03-02": 17
     }
   },
@@ -43,11 +44,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/prod.api.rootnote.co.ico",
     "slug": "root-note-api",
     "status": "up",
-    "uptime": "99.31%",
+    "uptime": "99.32%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
-    "uptimeYear": "99.31%",
+    "uptimeYear": "99.32%",
     "time": 643,
     "timeDay": 119,
     "timeWeek": 213,
