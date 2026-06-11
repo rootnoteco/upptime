@@ -43,7 +43,7 @@
     "url": "https://prod.api.rootnote.co/api/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/prod.api.rootnote.co.ico",
     "slug": "root-note-api",
-    "status": "up",
+    "status": "down",
     "uptime": "99.51%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
