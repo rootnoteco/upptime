@@ -9,6 +9,8 @@ sites:
     url: https://v2.app.rootnote.co/signin                                                                                                                
   - name: RootNote API                                                                                                                                   
     url: https://prod.api.rootnote.co/api/healthcheck                                                                                                    
+    type: globalping
+    location: US+datacenter-network
     expectedStatusCodes:
       - 200
 assignees: # Users to assign downtime issues (optional)
