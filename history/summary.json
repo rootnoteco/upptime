@@ -43,7 +43,7 @@
     "url": "https://prod.api.rootnote.co/api/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/prod.api.rootnote.co.ico",
     "slug": "root-note-api",
-    "status": "up",
+    "status": "down",
     "uptime": "99.58%",
     "uptimeDay": "98.23%",
     "uptimeWeek": "99.75%",
@@ -59,7 +59,8 @@
       "2026-02-23": 18,
       "2026-02-26": 373,
       "2026-06-11": 94,
-      "2026-07-25": 25
+      "2026-07-25": 25,
+      "2026-07-26": 0
     }
   }
 ]
