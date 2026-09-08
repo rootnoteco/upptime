@@ -1,0 +1,39 @@
+# RootNote-owned: deliberately outside Upptime's generated workflow filenames.
+name: Monitor attempt
+on:
+  workflow_call:
+    inputs:
+      command:
+        type: string
+        required: true
+      tolerate_failure:
+        type: boolean
+        default: false
+    secrets:
+      GH_PAT:
+        required: false
+      GLOBALPING_TOKEN:
+        required: true
+    outputs:
+      outcome:
+        value: ${{ jobs.monitor.outputs.outcome }}
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      outcome: ${{ steps.monitor.outcome }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          token: ${{ secrets.GH_PAT || github.token }}
+      - name: Check endpoints
+        id: monitor
+        continue-on-error: ${{ inputs.tolerate_failure }}
+        uses: upptime/uptime-monitor@v1.43.16
+        with:
+          command: ${{ inputs.command }}
+        env:
+          GH_PAT: ${{ secrets.GH_PAT || github.token }}
+          SECRETS_CONTEXT: '{"GLOBALPING_TOKEN":${{ toJson(secrets.GLOBALPING_TOKEN) }}}'

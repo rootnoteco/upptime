@@ -1,0 +1,6 @@
+{
+  "name": "rootnote-upptime-checks",
+  "private": true,
+  "scripts": { "test": "node --test" },
+  "devDependencies": { "yaml": "2.8.2" }
+}
