@@ -1,0 +1,34 @@
+name: Monitor regression tests
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - '.upptimerc.yml'
+      - 'tests/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/**'
+      - '.upptimerc.yml'
+      - 'tests/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test

@@ -1,0 +1,51 @@
+# RootNote-owned. Disable generated uptime.yml and response-time.yml at rollout;
+# see docs/monitoring.md. Upptime's template updater preserves this filename.
+name: Resilient Monitor CI
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+    - cron: "0 23 * * *"
+  repository_dispatch:
+    types: [uptime, response_time]
+  workflow_dispatch:
+    inputs:
+      command:
+        description: Upptime operation
+        type: choice
+        default: update
+        options: [update, response-time]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime
+  cancel-in-progress: false
+jobs:
+  first:
+    uses: ./.github/workflows/monitor-attempt.yml
+    with:
+      command: ${{ inputs.command || ((github.event.schedule == '0 23 * * *' || github.event.action == 'response_time') && 'response-time' || 'update') }}
+      tolerate_failure: true
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
+      GLOBALPING_TOKEN: ${{ secrets.GLOBALPING_TOKEN }}
+  retry:
+    needs: first
+    if: ${{ !cancelled() && needs.first.outputs.outcome == 'failure' }}
+    uses: ./.github/workflows/monitor-attempt.yml
+    with:
+      command: ${{ inputs.command || ((github.event.schedule == '0 23 * * *' || github.event.action == 'response_time') && 'response-time' || 'update') }}
+      tolerate_failure: true
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
+      GLOBALPING_TOKEN: ${{ secrets.GLOBALPING_TOKEN }}
+  final:
+    needs: [first, retry]
+    if: ${{ !cancelled() && needs.retry.outputs.outcome == 'failure' }}
+    uses: ./.github/workflows/monitor-attempt.yml
+    with:
+      command: ${{ inputs.command || ((github.event.schedule == '0 23 * * *' || github.event.action == 'response_time') && 'response-time' || 'update') }}
+      tolerate_failure: false
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
+      GLOBALPING_TOKEN: ${{ secrets.GLOBALPING_TOKEN }}
