@@ -45,16 +45,16 @@
     "url": "https://prod.api.rootnote.co/api/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/prod.api.rootnote.co.ico",
     "slug": "root-note-api",
-    "status": "down",
+    "status": "up",
     "uptime": "99.72%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "99.66%",
+    "uptimeWeek": "99.95%",
+    "uptimeMonth": "99.99%",
     "uptimeYear": "99.72%",
     "time": 346,
-    "timeDay": 121,
-    "timeWeek": 171,
-    "timeMonth": 160,
+    "timeDay": 208,
+    "timeWeek": 186,
+    "timeMonth": 164,
     "timeYear": 346,
     "dailyMinutesDown": {
       "2026-01-24": 637,
@@ -63,7 +63,7 @@
       "2026-06-11": 94,
       "2026-07-25": 25,
       "2026-07-26": 53,
-      "2026-11-14": 0
+      "2026-11-14": 5
     }
   }
 ]
